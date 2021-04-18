@@ -829,7 +829,7 @@ bool CIrrDeviceLinux::run()
 		{
 			XEvent event;
 			XNextEvent(XDisplay, &event);
-			if (XFilterEvent(&event, None))
+			if (XFilterEvent(&event, acceptsIME() ? None : XWindow))
 				continue;
 
 			switch (event.type)
